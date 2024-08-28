@@ -1,0 +1,25 @@
+name: Build and Run Memory Info Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+
+    - name: Build and Run Memory Info Action
+      id: run-action
+      uses: ./
+      with:
+        example-input: 'example-value'
+
+    - name: Output Memory Info
+      run: |
+        echo "Memory Info:"
+        echo "${{ steps.run-action.outputs.memory-info }}"

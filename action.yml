@@ -1,0 +1,22 @@
+name: 'Memory Info Action'
+description: 'Outputs memory info from a container'
+
+inputs:
+  example-input:
+    description: 'An example input'
+    required: true
+    default: 'default-value'
+
+outputs:
+  memory-info:
+    description: 'Memory information from the container'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.example-input }}
+
+branding:
+  icon: 'memory'
+  color: 'blue'
